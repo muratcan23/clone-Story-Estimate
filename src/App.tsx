@@ -1,9 +1,10 @@
-import { ChakraProvider, Text } from "@chakra-ui/react";
+import { ChakraProvider } from "@chakra-ui/react";
+import Board from "./Components/Board";
 
 function App() {
   return (
     <ChakraProvider>
-      <Text fontSize="40px">Clone Story Estimate</Text>
+      <Board />
     </ChakraProvider>
   );
 }
