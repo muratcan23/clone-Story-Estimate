@@ -3,13 +3,13 @@ const POINTS = [0, 1, 2, 3, 4, 5, 8, 13, "?"];
 
 const Votes = () => {
   return (
-    <Flex mb="auto" mr="auto" ml="40px">
+    <Flex m="15px auto auto 10px">
       {POINTS.map((point) => (
         <Box
           key={point}
           as="button"
-          h="30px"
-          w="30px"
+          h="32px"
+          w="32px"
           borderRadius="5px"
           bg="#6c757d"
           _hover={{ bg: "#585f69" }}
