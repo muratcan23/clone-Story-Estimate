@@ -2,7 +2,7 @@ import { Button, Flex } from "@chakra-ui/react";
 
 const Buttons = () => {
   return (
-    <Flex m="30px 10px auto 10px" p="5px">
+    <Flex m="30px 20px auto 20px" p="5px">
       <Button
         bg="#44cb70"
         h="35px"
