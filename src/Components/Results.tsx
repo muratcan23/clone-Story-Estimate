@@ -5,13 +5,38 @@ const Results = () => {
   return (
     <Center>
       <HStack w="95%" h="275px" mt="10px" alignItems="flex-start">
-        <Flex border="1px solid black" w="35%" h="100%"></Flex>
-
+        <Flex w="35%" h="100%">
+          {/* Left side */}
+          <Flex
+            borderTop="0.5px solid gray"
+            borderBottom="2px solid gray"
+            w="100%"
+            h="5vh"
+            mt="20px"
+          >
+            <Text fontSize="14px" fontWeight="bold" fontFamily="inherit">
+              Player
+            </Text>
+            <Text
+              fontSize="14px"
+              fontWeight="bold"
+              fontFamily="inherit"
+              ml="40px"
+            >
+              Voting Status
+            </Text>
+          </Flex>
+        </Flex>
+        {/* Right Side */}
         <Flex
-          border="1px solid black"
+          borderLeft="1px solid gray"
+          borderBottom="1px solid gray"
+          borderRight="1px solid gray"
+          transition="1"
           w="50%"
           h="100%"
           ml="auto"
+          mt="20px"
           flexDir="column"
         >
           <Flex h="50px" w="100%" bg="#44cb70" alignItems="center">
