@@ -1,7 +1,16 @@
 import { Box, Flex, Text } from "@chakra-ui/react";
+import { useState } from "react";
 const POINTS = [0, 1, 2, 3, 4, 5, 8, 13, "?"];
 
-const Votes = () => {
+type VoteProps = {};
+const Votes: React.FC<VoteProps> = () => {
+  const [vote, setVote] = useState<string | null>("");
+
+  const handleButtonClick = (buttonValue: string | number) => {
+    setVote(buttonValue.toString());
+    console.log(vote);
+  };
+
   return (
     <Flex m="15px auto auto 10px">
       {POINTS.map((point) => (
@@ -16,6 +25,7 @@ const Votes = () => {
           m="5px 0 auto 14px"
           alignItems="center"
           justifyContent="center"
+          onClick={() => handleButtonClick(point)}
         >
           <Text color="white" fontSize="16px" fontWeight="semibold">
             {point}
