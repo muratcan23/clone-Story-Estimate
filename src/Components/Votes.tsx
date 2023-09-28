@@ -14,14 +14,16 @@ import {
 import { useState } from "react";
 
 const POINTS = [0, 1, 2, 3, 4, 5, 8, 13, "?"];
+type VoteEntry = {
+  username: string;
+  vote: string;
+};
 
 type VoteProps = {};
 const Votes: React.FC<VoteProps> = () => {
   const [vote, setVote] = useState<string | null>("");
   const [username, setUsername] = useState<string>("");
-  const [voteEntries, setVoteEntries] = useState<
-    { username: string; vote: string }[]
-  >([]);
+  const [voteEntries, setVoteEntries] = useState<VoteEntry[]>([]);
 
   const { isOpen, onOpen, onClose } = useDisclosure();
 

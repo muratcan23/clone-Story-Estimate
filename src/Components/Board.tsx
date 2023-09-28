@@ -1,5 +1,6 @@
 import { Box, Center } from "@chakra-ui/react";
 import Buttons from "./Buttons";
+import Results from "./Results";
 import User from "./User";
 import Votes from "./Votes";
 
@@ -10,6 +11,7 @@ const Board = () => {
         <User />
         <Votes />
         <Buttons />
+        <Results {voteEntries} />
       </Box>
     </Center>
   );

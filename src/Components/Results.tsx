@@ -1,11 +1,20 @@
 import { Center, Flex, HStack, Text } from "@chakra-ui/react";
 import ScaleIcon from "./Icons/ScaleIcon";
 
-const Results = () => {
+type VoteEntry = {
+  username: string;
+  vote: string;
+};
+
+interface ResultsProps {
+  voteEntries: VoteEntry[];
+}
+
+const Results: React.FC<ResultsProps> = ({ voteEntries }) => {
   return (
     <Center>
       <HStack w="95%" h="275px" mt="10px" alignItems="flex-start">
-        <Flex w="35%" h="100%">
+        <Flex w="35%" h="100%" flexDir="column">
           {/* Left side */}
           <Flex
             borderTop="0.5px solid gray"
@@ -26,6 +35,12 @@ const Results = () => {
               Voting Status
             </Text>
           </Flex>
+          {voteEntries.map((entry) => (
+            <Text key={entry.username}>
+              {entry.username} : {entry.vote}
+            </Text>
+          ))}
+          <Text>ssss</Text>
         </Flex>
         {/* Right Side */}
         <Flex
