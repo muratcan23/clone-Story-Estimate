@@ -1,6 +1,7 @@
 import {
   Box,
   Button,
+  Center,
   Flex,
   Input,
   Modal,
@@ -54,11 +55,12 @@ const Votes: React.FC<VoteProps> = () => {
       {
         <Modal isOpen={isOpen} onClose={onClose}>
           <ModalOverlay />
-          <ModalContent h="200px">
-            <ModalBody alignItems="center" justifyContent="center">
-              <Text m="5px" fontSize="18px">
-                You must enter a valid username
-              </Text>
+          <ModalContent h="175px">
+            <ModalBody
+              alignItems="center"
+              justifyContent="center"
+              bg="gray.100"
+            >
               <Input
                 bg="white"
                 placeholder="Enter username plz"
@@ -68,9 +70,22 @@ const Votes: React.FC<VoteProps> = () => {
                 alignItems="center"
                 justifyContent="center"
               />
-              <Button colorScheme="green" onClick={handleVoteEntry} mt="5px">
-                Submit
-              </Button>
+              <Flex
+                bg="red"
+                borderRadius="10px"
+                h="35px"
+                border="1px solid black"
+                m="5px"
+              >
+                <Text fontSize="20px" justifyContent="center" ml="50px">
+                  You must enter a valid username !
+                </Text>
+              </Flex>
+              <Center m="10px">
+                <Button colorScheme="green" onClick={handleVoteEntry} mt="5px">
+                  Submit
+                </Button>
+              </Center>
             </ModalBody>
           </ModalContent>
         </Modal>
