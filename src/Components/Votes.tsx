@@ -1,8 +1,4 @@
 import {
-  Alert,
-  AlertDescription,
-  AlertIcon,
-  AlertTitle,
   Box,
   Button,
   Flex,
@@ -58,32 +54,23 @@ const Votes: React.FC<VoteProps> = () => {
       {
         <Modal isOpen={isOpen} onClose={onClose}>
           <ModalOverlay />
-          <ModalContent>
-            <ModalBody>
-              <Alert
-                status="error"
-                variant="subtle"
-                flexDirection="column"
+          <ModalContent h="200px">
+            <ModalBody alignItems="center" justifyContent="center">
+              <Text m="5px" fontSize="18px">
+                You must enter a valid username
+              </Text>
+              <Input
+                bg="white"
+                placeholder="Enter username plz"
+                value={username}
+                onChange={handleUsernameChange}
+                m="4px"
                 alignItems="center"
                 justifyContent="center"
-                textAlign="center"
-                height="100%"
-              >
-                <AlertIcon boxSize="40px" mr={0} />
-                <AlertTitle m="5px" fontSize="18px">
-                  You must enter a valid username
-                </AlertTitle>
-                <Input
-                  bg="white"
-                  placeholder="Enter username plz"
-                  value={username}
-                  onChange={handleUsernameChange}
-                  m="4px"
-                />
-                <Button colorScheme="green" onClick={handleVoteEntry} mt="5px">
-                  Submit
-                </Button>
-              </Alert>
+              />
+              <Button colorScheme="green" onClick={handleVoteEntry} mt="5px">
+                Submit
+              </Button>
             </ModalBody>
           </ModalContent>
         </Modal>
@@ -107,13 +94,6 @@ const Votes: React.FC<VoteProps> = () => {
           </Text>
         </Box>
       ))}
-      {isOpen && (
-        <Alert status="error" mt="15px" width="100%">
-          <AlertIcon />
-          <AlertTitle>Error!</AlertTitle>
-          <AlertDescription>Please enter a valid username.</AlertDescription>
-        </Alert>
-      )}
 
       {/* tempororay  displaying entered votes */}
       <Flex ml="auto" mr="10px">
