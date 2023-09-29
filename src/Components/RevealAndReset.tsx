@@ -1,6 +1,6 @@
 import { Button, Flex } from "@chakra-ui/react";
 
-const Buttons = () => {
+const RevealAndReset = () => {
   return (
     <Flex m="30px 20px auto 20px" p="5px">
       <Button
@@ -24,4 +24,4 @@ const Buttons = () => {
   );
 };
 
-export default Buttons;
+export default RevealAndReset;

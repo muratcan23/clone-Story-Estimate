@@ -1,128 +1,99 @@
-import {
-  Box,
-  Button,
-  Center,
-  Flex,
-  Input,
-  Modal,
-  ModalBody,
-  ModalContent,
-  ModalOverlay,
-  Text,
-  useDisclosure,
-} from "@chakra-ui/react";
-import { useState } from "react";
+import { Center, Flex, Text } from "@chakra-ui/react";
 
-const POINTS = [0, 1, 2, 3, 4, 5, 8, 13, "?"];
 type VoteEntry = {
   username: string;
   vote: string;
 };
 
-type VoteProps = {};
-const Votes: React.FC<VoteProps> = () => {
-  const [vote, setVote] = useState<string | null>("");
-  const [username, setUsername] = useState<string>("");
-  const [voteEntries, setVoteEntries] = useState<VoteEntry[]>([]);
+interface VotesProps {
+  voteEntries: VoteEntry[];
+}
 
-  const { isOpen, onOpen, onClose } = useDisclosure();
-
-  const handleButtonClick = (buttonValue: string | number) => {
-    setVote(buttonValue.toString());
-    onOpen();
-  };
-
-  const handleUsernameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setUsername(e.target.value);
-  };
-
-  const handleVoteEntry = () => {
-    const enteredUsername = username.trim();
-
-    if (enteredUsername !== "") {
-      setVoteEntries((prevEntries) => [
-        ...prevEntries,
-        { username: enteredUsername, vote: vote || "" },
-      ]);
-
-      setUsername("");
-      onClose();
-    } else {
-      onOpen();
-    }
-  };
-
+const Votes: React.FC<VotesProps> = ({ voteEntries }) => {
   return (
-    <Flex m="15px auto auto 10px">
-      {
-        <Modal isOpen={isOpen} onClose={onClose}>
-          <ModalOverlay />
-          <ModalContent h="175px">
-            <ModalBody
-              alignItems="center"
-              justifyContent="center"
-              bg="gray.100"
-            >
-              <Input
-                bg="white"
-                placeholder="Enter username plz"
-                value={username}
-                onChange={handleUsernameChange}
-                m="4px"
-                alignItems="center"
-                justifyContent="center"
-              />
-              <Flex
-                bg="red"
-                borderRadius="10px"
-                h="35px"
-                border="1px solid black"
-                m="5px"
-              >
-                <Text fontSize="20px" justifyContent="center" ml="50px">
-                  You must enter a valid username !
-                </Text>
-              </Flex>
-              <Center m="10px">
-                <Button colorScheme="green" onClick={handleVoteEntry} mt="5px">
-                  Submit
-                </Button>
-              </Center>
-            </ModalBody>
-          </ModalContent>
-        </Modal>
-      }
-      {POINTS.map((point) => (
-        <Box
-          key={point}
-          as="button"
-          h="32px"
-          w="32px"
-          borderRadius="5px"
-          bg="#6c757d"
-          _hover={{ bg: "#585f69" }}
-          m="5px 0 auto 14px"
-          alignItems="center"
-          justifyContent="center"
-          onClick={() => handleButtonClick(point)}
+    <Center>
+      <Flex w="35%" h="100%" flexDir="column">
+        {/* Left side */}
+        <Flex
+          borderTop="0.5px solid gray"
+          borderBottom="2px solid gray"
+          w="100%"
+          h="5vh"
+          mt="20px"
         >
-          <Text color="white" fontSize="16px" fontWeight="semibold">
-            {point}
+          <Text fontSize="14px" fontWeight="bold" fontFamily="inherit">
+            Player
           </Text>
-        </Box>
-      ))}
-
-      {/* tempororay  displaying entered votes */}
-      <Flex ml="auto" mr="10px">
-        <Box bg="tomato">
-          {voteEntries.map((entry, index) => (
-            <li key={index}>
-              {entry.username}= {entry.vote}
-            </li>
-          ))}
-        </Box>
+          <Text
+            fontSize="14px"
+            fontWeight="bold"
+            fontFamily="inherit"
+            ml="40px"
+          >
+            Voting Status
+          </Text>
+        </Flex>
+        {voteEntries.map((entry) => (
+          <Text key={entry.username}>
+            {entry.username} : {entry.vote}
+          </Text>
+        ))}
+        <Text>ssss</Text>
       </Flex>
-    </Flex>
+      {/* Right Side */}
+      {/* <Flex
+          borderLeft="1px solid gray"
+          borderBottom="1px solid gray"
+          borderRight="1px solid gray"
+          transition="1"
+          w="50%"
+          h="100%"
+          ml="auto"
+          mt="20px"
+          flexDir="column"
+        >
+          <Flex h="50px" w="100%" bg="#44cb70" alignItems="center">
+            <ScaleIcon />
+            <Text ml="15px" fontSize="18px" color="white" fontWeight="inherit">
+              Estimation Results
+            </Text>
+          </Flex>
+
+          <Flex>
+            <Text
+              fontFamily="Open Sans,Helvetica,Arial,sans-serif"
+              flexShrink="1rem"
+              color="#555"
+              fontWeight="400"
+              fontSize="16px"
+              m="10px auto 0 10px"
+            >
+              Average -
+            </Text>
+          </Flex>
+          <Flex>
+            <Text
+              fontFamily="Open Sans,Helvetica,Arial,sans-serif"
+              flexShrink="1rem"
+              color="#555"
+              fontWeight="400"
+              fontSize="16px"
+              m="10px auto 0 10px"
+            >
+              Disagreement -
+            </Text>
+          </Flex>
+          <Flex>
+            <Text
+              fontFamily="Open Sans,Helvetica,Arial,sans-serif"
+              fontSize="18px"
+              m="10px auto 0 10px"
+            >
+              Vote Summary
+            </Text>
+          </Flex>
+        </Flex> */}
+    </Center>
   );
 };
 
