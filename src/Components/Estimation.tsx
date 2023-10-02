@@ -8,10 +8,10 @@ const Estimation = () => {
       borderBottom="1px solid gray"
       borderRight="1px solid gray"
       transition="1"
-      w="50%"
-      h="100%"
+      w="500px"
+      h="275px"
       ml="auto"
-      mt="20px"
+      mb="auto"
       flexDir="column"
     >
       <Flex h="50px" w="100%" bg="#44cb70" alignItems="center">

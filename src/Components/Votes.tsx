@@ -1,4 +1,4 @@
-import { Center, Flex, Text } from "@chakra-ui/react";
+import { Flex, Text } from "@chakra-ui/react";
 
 type VoteEntry = {
   username: string;
@@ -11,8 +11,9 @@ interface VotesProps {
 
 const Votes: React.FC<VotesProps> = ({ voteEntries }) => {
   return (
-    <Center>
-      <Flex w="35%" h="100%" flexDir="column">
+    <>
+      {" "}
+      <Flex w="300px" h="275px" flexDir="column" mr="auto">
         {/* Left side */}
         <Flex
           borderTop="0.5px solid gray"
@@ -93,7 +94,7 @@ const Votes: React.FC<VotesProps> = ({ voteEntries }) => {
             </Text>
           </Flex>
         </Flex> */}
-    </Center>
+    </>
   );
 };
 
